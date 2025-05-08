@@ -1,336 +1,477 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyNoonan - Celebrando Pequenos Gigantes</title>
+    <title>Autalytix - Turning Assets Into Strategy</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --dark: #0f172a;
+            --darker: #020617;
+            --glass: rgba(15, 23, 42, 0.7);
         }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--darker);
+            color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+
+        .glass-effect {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
-        .heart-beat {
-            animation: heartbeat 1.5s ease-in-out infinite;
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
         }
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+
+        .fade-in.visible {
+            opacity: 1;
         }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+
+        .icon-rotate {
+            transition: transform 0.5s ease;
+        }
+
+        .icon-rotate:hover {
+            transform: rotate(15deg);
+        }
+
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .btn-glow:hover::before {
+            left: 100%;
+            top: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #3b82f6, #6366f1);
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #2563eb, #4f46e5);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
     </style>
 </head>
-<body class="font-sans antialiased text-gray-800">
-    <!-- Header/Navigation -->
-    <header class="bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-heart text-pink-500 text-2xl heart-beat"></i>
-                <span class="text-xl font-bold text-blue-800">MyNoonan</span>
+
+<body class="antialiased">
+    <!-- HEADER FIXO -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="./assets/mini_logo.jpg" alt="Autalytix Logo" class="h-10 w-10 rounded-full object-cover">
+                    <span class="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">Autalytix</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-300 hover:text-white transition duration-300">Sobre</a>
+                    <a href="#solutions" class="text-gray-300 hover:text-white transition duration-300">Serviços</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contato</a>
+                </nav>
             </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#about" class="text-blue-600 hover:text-blue-800 font-medium">O que é</a>
-                <a href="#how" class="text-gray-600 hover:text-blue-800 font-medium">Como funciona</a>
-                <a href="#who" class="text-gray-600 hover:text-blue-800 font-medium">Quem somos</a>
-                <a href="#join" class="text-gray-600 hover:text-blue-800 font-medium">Participe</a>
-            </nav>
-            <button class="md:hidden text-gray-600">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient py-20 md:py-32">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold text-blue-900 mb-6">
-                Cada vitória importa.<br>
-                <span class="text-blue-600">Cada história inspira.</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-10">
-                MyNoonan é o espaço para registrar, celebrar e compartilhar as conquistas dos nossos pequenos gigantes com Síndrome de Noonan. Vamos construir juntos um mural de vitórias e esperança.
-            </p>
-            <button onclick="scrollToForm()" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transform transition hover:scale-105">
-                Quero fazer parte desse movimento! <i class="fas fa-arrow-right ml-2"></i>
-            </button>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-6">Por que criamos o MyNoonan?</h2>
-                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
-                    Crianças com Síndrome de Noonan enfrentam batalhas diárias — mas suas vitórias raramente são contadas. O MyNoonan nasceu para mudar isso: aqui, cada pequena conquista é celebrada como uma grande vitória. Queremos dar voz às famílias, construir uma rede de apoio e espalhar esperança para o mundo.
-                </p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-blue-50 p-8 rounded-xl text-center">
-                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-child text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-blue-900 mb-3">Celebrando Conquistas</h3>
-                    <p class="text-gray-700">Do primeiro sorriso aos grandes marcos, cada vitória merece ser registrada e comemorada.</p>
-                </div>
-                <div class="bg-pink-50 p-8 rounded-xl text-center">
-                    <div class="bg-pink-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-hands-helping text-pink-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-pink-900 mb-3">Rede de Apoio</h3>
-                    <p class="text-gray-700">Conectamos famílias para compartilhar experiências, dicas e muito apoio emocional.</p>
-                </div>
-                <div class="bg-purple-50 p-8 rounded-xl text-center">
-                    <div class="bg-purple-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-book-medical text-purple-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-purple-900 mb-3">Informação de Qualidade</h3>
-                    <p class="text-gray-700">Compartilhamos conhecimento médico e experiências reais para ajudar no dia a dia.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-16">Como funciona?</h2>
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white p-8 rounded-xl shadow-md transition-all duration-300 card-hover">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-blue-600 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center mr-4">1</div>
-                        <h3 class="text-xl font-bold text-blue-900">Registre seu filho</h3>
-                    </div>
-                    <p class="text-gray-700">Crie um perfil seguro e cheio de amor para seu pequeno guerreiro, com fotos e informações que você deseja compartilhar.</p>
-                    <div class="mt-6 text-blue-600">
-                        <i class="fas fa-lock mr-2"></i> Totalmente seguro e privado
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md transition-all duration-300 card-hover">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-pink-600 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center mr-4">2</div>
-                        <h3 class="text-xl font-bold text-blue-900">Conte suas vitórias</h3>
-                    </div>
-                    <p class="text-gray-700">Compartilhe cada marco, cada superação, cada passo conquistado. Do primeiro sorriso às grandes conquistas.</p>
-                    <div class="mt-6 text-pink-600">
-                        <i class="fas fa-trophy mr-2"></i> Cada vitória é celebrada
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md transition-all duration-300 card-hover">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-purple-600 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center mr-4">3</div>
-                        <h3 class="text-xl font-bold text-blue-900">Inspire outras famílias</h3>
-                    </div>
-                    <p class="text-gray-700">Sua história pode ser a luz que alguém precisa em um momento difícil. Juntos, criamos uma corrente de esperança.</p>
-                    <div class="mt-6 text-purple-600">
-                        <i class="fas fa-heart mr-2"></i> Apoio e inspiração
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Who We Are Section -->
-    <section id="who" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
+    <!-- HERO SECTION -->
+    <section class="hero-gradient min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 py-20">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <img src="/assets/paiefilho.jpg"
-                         alt="Criança sorrindo"
-                         class="rounded-xl shadow-xl w-full h-auto">
+                <div class="md:w-1/2 fade-in">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">Autalytix</span>
+                        <span class="block text-2xl md:text-3xl font-light mt-2 text-gray-300">Turning Assets Into Strategy</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+                        Transformamos ativos em vantagem competitiva, combinando inteligência estratégica, tecnologia e análise patrimonial.
+                    </p>
+                    <a href="#solutions" class="btn-glow inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg text-white font-medium hover:from-blue-600 hover:to-blue-700 transition duration-300 relative overflow-hidden">
+                        Conheça nossa abordagem
+                    </a>
                 </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-6">Quem somos?</h2>
-                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-                        Somos pais, amigos e lutadores. O MyNoonan nasceu da história real de um pequeno grande guerreiro — Ravi Arede Pimenta Slomski — que enfrentou desafios gigantes com coragem e luz.
-                    </p>
-                    <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-                        Hoje queremos acolher milhares de famílias, mostrar que cada batalha vencida é motivo de orgulho, e construir um mural de esperança que inspire o mundo inteiro.
-                    </p>
-                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
-                        <div class="flex items-start">
-                            <i class="fas fa-quote-left text-blue-400 text-2xl mr-4 mt-1"></i>
-                            <p class="text-blue-900 italic">
-                                "Quando compartilhamos nossas histórias, percebemos que não estamos sozinhos. Cada vitória de um de nossos pequenos gigantes é uma vitória de todos nós."
-                            </p>
-                        </div>
+                <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center fade-in">
+                    <div class="relative floating">
+                        <div class="absolute inset-0 bg-blue-500 rounded-2xl opacity-20 blur-lg"></div>
+                        <img src="./assets/mini_logo.jpg" alt="Autalytix Logo" class="relative h-64 w-64 rounded-full object-cover border-4 border-blue-500/20">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-blue-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-16">O que as famílias dizem</h2>
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white p-8 rounded-xl shadow-sm">
-                    <div class="flex mb-4 text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-700 mb-6 italic">
-                        "Li tudo e senti como se alguém tivesse colocado em palavras o que a gente vive. Me emocionei."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Ana" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-blue-900">Ana, mãe do Lucas</h4>
-                            <p class="text-sm text-gray-600">São Paulo, SP</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-sm">
-                    <div class="flex mb-4 text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-700 mb-6 italic">
-                        "É raro encontrar um espaço que entende o que é criar um filho com Noonan. Esse projeto vai fazer diferença."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Carla" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-blue-900">Carla, mãe da Sofia</h4>
-                            <p class="text-sm text-gray-600">Belo Horizonte, MG</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-sm">
-                    <div class="flex mb-4 text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-700 mb-6 italic">
-                        "Cada frase do site parecia ter sido escrita por alguém que conhece nossa rotina. Tô torcendo pra isso crescer."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ricardo" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-blue-900">Ricardo, pai do Pedro</h4>
-                            <p class="text-sm text-gray-600">Porto Alegre, RS</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- SOBRE / MISSÃO / VISÃO -->
+<section id="about" class="py-20 relative">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto text-center mb-16 fade-in">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Sobre a Autalytix</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-transparent mx-auto mb-8"></div>
+      <p class="text-lg text-gray-400 leading-relaxed">
+        A Autalytix é uma empresa de tecnologia e análise estratégica que ajuda organizações a enxergar seus ativos com uma nova lente. Alinhamos avaliação patrimonial, inteligência contábil e visão de mercado para criar estratégias sólidas, preparadas para escalar.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
+      <div class="fade-in">
+        <div class="glass-card p-8 rounded-2xl">
+          <h3 class="text-2xl font-bold mb-4">Nossa Missão</h3>
+          <p class="text-gray-400 mb-6">
+            Capacitar empresas a transformar dados patrimoniais em decisões estratégicas através de tecnologia avançada e análise especializada.
+          </p>
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 rounded-full bg-blue-900/30 flex items-center justify-center">
+              <i class="fas fa-bullseye text-blue-400 text-xl"></i>
             </div>
+            <div>
+              <h4 class="font-medium">Precisão</h4>
+              <p class="text-sm text-gray-500">Dados confiáveis e análises precisas</p>
+            </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Form Section -->
-    <section id="join" class="py-20 bg-gradient-to-r from-blue-500 to-blue-700">
-        <div class="container mx-auto px-4">
-            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
-                <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Participe do MyNoonan</h2>
-                
-                <form action="https://formsubmit.co/slomskisolutions@gmail.com" method="POST" class="space-y-6">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://mynoonan.com/sucesso.html">
-                    <input type="hidden" name="_subject" value="Novo cadastro no MyNoonan!">
-
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
-                        <input type="text" id="name" name="name" required
-                               class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-200">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
-                        <input type="email" id="email" name="email" required
-                               class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-200">
-                    </div>
-                    <button type="submit"
-                            class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded-lg">
-                        Quero receber novidades <i class="fas fa-envelope ml-2"></i>
-                    </button>
-                </form>
-
-                <p class="text-xs text-gray-500 text-center mt-4">
-                    Ao se inscrever, você concorda com nossos Termos de Uso e Política de Privacidade.
-                </p>
+      </div>
+      <div class="fade-in">
+        <div class="glass-card p-8 rounded-2xl">
+          <h3 class="text-2xl font-bold mb-4">Nossa Visão</h3>
+          <p class="text-gray-400 mb-6">
+            Ser referência nacional em inteligência patrimonial, integrando tecnologia e conhecimento para criar valor sustentável.
+          </p>
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 rounded-full bg-indigo-900/30 flex items-center justify-center">
+              <i class="fas fa-eye text-indigo-400 text-xl"></i>
             </div>
+            <div>
+              <h4 class="font-medium">Clareza</h4>
+              <p class="text-sm text-gray-500">Visão estratégica e transparente</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <div class="flex items-center space-x-2">
-                        <i class="fas fa-heart text-pink-500 text-2xl"></i>
-                        <span class="text-xl font-bold">MyNoonan</span>
-                    </div>
-                    <p class="mt-4 text-gray-400 max-w-md">
-                        Feito com amor para todos os Pequenos Gigantes. MyNoonan © 2025. Todos os direitos reservados.
-                    </p>
-                </div>
-                <div class="flex space-x-6 justify-center mt-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-facebook-f text-xl"></i>
-                    </a>
-                    <a href="https://instagram.com/mynoonan.app" target="_blank" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-instagram text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-youtube text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-whatsapp text-xl"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-                <p>Este site não oferece aconselhamento médico. Consulte sempre um profissional de saúde qualificado.</p>
-            </div>
+<!-- NOSSAS SOLUÇÕES -->
+<section id="solutions" class="py-20 bg-gradient-to-b from-slate-900/50 to-slate-900/20">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto text-center mb-16 fade-in">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Nossas Soluções</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-transparent mx-auto mb-8"></div>
+      <p class="text-lg text-gray-400 leading-relaxed">
+        Oferecemos um portfólio completo de serviços para transformar seus ativos em vantagem competitiva.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="glass-card p-6 rounded-xl card-hover fade-in">
+        <div class="w-14 h-14 rounded-lg bg-blue-900/30 flex items-center justify-center mb-6 text-blue-400 text-2xl">
+          <i class="fas fa-chart-line"></i>
         </div>
-    </footer>
+        <h3 class="text-xl font-bold mb-3">Avaliação Estratégica de Ativos</h3>
+        <p class="text-gray-400">
+          Análise técnica e estratégica de ativos tangíveis e intangíveis para tomada de decisão informada.
+        </p>
+      </div>
 
-    <script>
-        function scrollToForm() {
-            document.getElementById('join').scrollIntoView({
-                behavior: 'smooth'
-            });
+      <div class="glass-card p-6 rounded-xl card-hover fade-in">
+        <div class="w-14 h-14 rounded-lg bg-indigo-900/30 flex items-center justify-center mb-6 text-indigo-400 text-2xl">
+          <i class="fas fa-puzzle-piece"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Inteligência Patrimonial Contábil</h3>
+        <p class="text-gray-400">
+          Integração entre dados contábeis e realidade de mercado para uma visão holística do patrimônio.
+        </p>
+      </div>
+
+      <div class="glass-card p-6 rounded-xl card-hover fade-in">
+        <div class="w-14 h-14 rounded-lg bg-purple-900/30 flex items-center justify-center mb-6 text-purple-400 text-2xl">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Preparação para Captação e Valuation</h3>
+        <p class="text-gray-400">
+          Estruturação de ativos e documentação para processos de captação, valuation e due diligence.
+        </p>
+      </div>
+
+      <div class="glass-card p-6 rounded-xl card-hover fade-in">
+        <div class="w-14 h-14 rounded-lg bg-teal-900/30 flex items-center justify-center mb-6 text-teal-400 text-2xl">
+          <i class="fas fa-building"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Apoio em Fusões, Aquisições e Governança</h3>
+        <p class="text-gray-400">
+          Assessoria especializada em processos de M&A e estruturação de governança patrimonial.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="py-20 relative">
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-slate-900/50 to-black z-0"></div>
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="glass-card rounded-2xl p-12">
+      <div class="max-w-4xl mx-auto text-center mb-12 fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Por que escolher a Autalytix?</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-transparent mx-auto mb-8"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="fade-in">
+          <div class="flex items-start mb-6">
+            <div class="flex-shrink-0 mr-4">
+              <div class="w-10 h-10 rounded-full bg-blue-900/30 flex items-center justify-center text-blue-400">
+                <i class="fas fa-check"></i>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-1">Abordagem baseada em dados</h3>
+              <p class="text-gray-400">
+                Utilizamos normas técnicas e metodologias validadas para garantir precisão e confiabilidade.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start mb-6">
+            <div class="flex-shrink-0 mr-4">
+              <div class="w-10 h-10 rounded-full bg-indigo-900/30 flex items-center justify-center text-indigo-400">
+                <i class="fas fa-check"></i>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-1">Integração contábil e de mercado</h3>
+              <p class="text-gray-400">
+                Conectamos a realidade contábil com as dinâmicas de mercado para uma visão completa.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in">
+          <div class="flex items-start mb-6">
+            <div class="flex-shrink-0 mr-4">
+              <div class="w-10 h-10 rounded-full bg-purple-900/30 flex items-center justify-center text-purple-400">
+                <i class="fas fa-check"></i>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-1">Equipe especializada</h3>
+              <p class="text-gray-400">
+                Profissionais com know-how técnico e visão executiva para orientação estratégica.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="flex-shrink-0 mr-4">
+              <div class="w-10 h-10 rounded-full bg-teal-900/30 flex items-center justify-center text-teal-400">
+                <i class="fas fa-check"></i>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-1">Resultados tangíveis</h3>
+              <p class="text-gray-400">
+                Foco em entregas que geram impacto real na gestão e valorização do patrimônio.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="py-20 bg-gradient-to-r from-blue-900/20 to-indigo-900/20">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto text-center fade-in">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Vamos transformar seus ativos em decisões estratégicas?</h2>
+      <p class="text-lg text-gray-400 mb-8">
+        Nossa equipe está pronta para ajudar sua organização a extrair o máximo valor do seu patrimônio.
+      </p>
+      <a href="#contact" class="btn-primary text-white font-medium py-3 px-8 rounded-full inline-block">
+        Fale com a gente
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contact" class="py-20">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16 fade-in">
+            <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Entre em Contato</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-transparent mx-auto mb-8"></div>
+            <p class="text-lg text-gray-400 leading-relaxed">
+                Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível.
+            </p>
+        </div>
+
+      <div class="glass-card rounded-2xl p-8 md:p-12 fade-in">
+        <form id="contactForm" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium mb-1">Nome</label>
+              <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium mb-1">E-mail</label>
+              <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+          </div>
+          <div>
+            <label for="company" class="block text-sm font-medium mb-1">Empresa</label>
+            <input type="text" id="company" name="company" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium mb-1">Mensagem</label>
+            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+          </div>
+          <div class="pt-2">
+            <button type="submit" class="btn-primary text-white font-medium py-3 px-8 rounded-full inline-block w-full md:w-auto">
+              Enviar Mensagem
+            </button>
+          </div>
+        </form>
+
+        <div id="successMessage" class="hidden mt-6 p-4 bg-green-900/30 rounded-lg border border-green-800 text-green-400">
+          <div class="flex items-center">
+            <i class="fas fa-check-circle mr-3 text-xl"></i>
+            <p>Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer class="bg-slate-900/50 py-12">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="flex items-center mb-6 md:mb-0">
+        <img src="./assets/mini_logo.jpg" alt="Autalytix Logo" class="h-8 w-auto mr-2">
+        <span class="text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">AUTALYTIX</span>
+      </div>
+      <div class="flex space-x-6 mb-6 md:mb-0">
+        <a href="https://www.instagram.com/autalytix/" target="_blank" class="text-gray-400 hover:text-white transition">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-white transition">
+          <i class="fab fa-linkedin text-xl"></i>
+        </a>
+      </div>
+      <div class="text-center md:text-right">
+        <p class="text-sm text-gray-500 mb-1">© 2025 Autalytix. Todos os direitos reservados.</p>
+        <p class="text-xs text-gray-600">Autalytix é uma marca Slomski Solutions.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
+      });
+    }, { threshold: 0.1 });
 
-        document.getElementById('signupForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+    fadeElements.forEach(element => fadeInObserver.observe(element));
 
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
 
-            // Here you would typically send this data to your server
-            console.log('Form submitted:', { name, email });
-
-            // Show success message
-            alert(`Obrigado, ${name}! Em breve você receberá nossas novidades no e-mail ${email}.`);
-
-            // Reset form
-            this.reset();
-        });
-
-    </script>
-
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        setTimeout(() => {
+          contactForm.reset();
+          successMessage.classList.remove('hidden');
+          setTimeout(() => {
+            successMessage.classList.add('hidden');
+          }, 5000);
+        }, 1000);
+      });
+    }
+  });
+</script>
 </body>
 </html>
