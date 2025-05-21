@@ -4,473 +4,552 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autalytix - Turning Assets Into Strategy</title>
+    <title>Autalytix | Tecnologia para Gestão Pública, Privada e Terceiro Setor</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'autalytix-navy': '#1a365d',
+                        'autalytix-teal': '#0d9488',
+                        'autalytix-darkGray': '#2d3748',
+                        'autalytix-gray': '#718096',
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --dark: #0f172a;
-            --darker: #020617;
-            --glass: rgba(15, 23, 42, 0.7);
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--darker);
-            color: #f8fafc;
+            font-family: 'Open Sans', sans-serif;
             scroll-behavior: smooth;
         }
 
-        .glass-effect {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Montserrat', sans-serif;
         }
 
         .hero-gradient {
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            background: linear-gradient(135deg, #253144 0%, #2d3748 100%);
         }
 
-        .card-hover {
-            transition: all 0.3s ease;
-        }
 
-        .card-hover:hover {
+        .solution-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        .fade-in {
-            opacity: 0;
-            transition: opacity 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-        }
-
-        .section-title {
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title:after {
+        .nav-link::after {
             content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 50%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), transparent);
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #0d9488;
+            transition: width .3s;
         }
 
-        .icon-rotate {
-            transition: transform 0.5s ease;
+        .nav-link:hover::after {
+            width: 100%;
         }
 
-        .icon-rotate:hover {
-            transform: rotate(15deg);
-        }
-
-        .btn-glow {
-            position: relative;
+        .mobile-menu {
+            max-height: 0;
             overflow: hidden;
+            transition: max-height 0.3s ease-out;
         }
 
-        .btn-glow::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s ease;
+        .mobile-menu.open {
+            max-height: 500px;
         }
 
-        .btn-glow:hover::before {
-            left: 100%;
-            top: 100%;
+        .testimonial-card {
+            background: linear-gradient(135deg, #253144 0%, #2d3748 100%);
         }
 
-        .btn-primary {
-            background: linear-gradient(to right, #3b82f6, #6366f1);
-            transition: background 0.3s ease;
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: pulse 2s infinite;
         }
 
-        .btn-primary:hover {
-            background: linear-gradient(to right, #2563eb, #4f46e5);
-        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
 
-        .floating {
-            animation: float 6s ease-in-out infinite;
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
         }
-
-        .section-title {
-            position: relative;
-            display: inline-block;
-        }
-
     </style>
 </head>
 
-<body class="antialiased">
-    <!-- HEADER FIXO -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
+<body class="bg-white text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 fixed w-full z-50 shadow-sm">
         <div class="container mx-auto px-6 py-4">
+
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <img src="./assets/mini_logo.jpg" alt="Autalytix Logo" class="h-10 w-10 rounded-full object-cover">
-                    <span class="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">Autalytix</span>
-                </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-gray-300 hover:text-white transition duration-300">Sobre</a>
-                    <a href="#solutions" class="text-gray-300 hover:text-white transition duration-300">Serviços</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contato</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="hero-gradient min-h-screen flex items-center pt-20">
-        <div class="container mx-auto px-6 py-20">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 fade-in">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">Autalytix</span>
-                        <span class="block text-2xl md:text-3xl font-light mt-2 text-gray-300">Turning Assets Into Strategy</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-                        Transformamos ativos em vantagem competitiva, combinando inteligência estratégica, tecnologia e análise patrimonial.
-                    </p>
-                    <a href="#solutions" class="btn-glow inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg text-white font-medium hover:from-blue-600 hover:to-blue-700 transition duration-300 relative overflow-hidden">
-                        Conheça nossa abordagem
+                    <a href="#home" class="text-2xl font-bold text-autalytix-navy">
+                        <span class="text-black">Autalytix</span>
                     </a>
                 </div>
-                <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center fade-in">
-                    <div class="relative floating">
-                        <div class="absolute inset-0 bg-blue-500 rounded-2xl opacity-20 blur-lg"></div>
-                        <img src="./assets/mini_logo.jpg" alt="Autalytix Logo" class="relative h-64 w-64 rounded-full object-cover border-4 border-blue-500/20">
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-black hover:text-autalytix-teal">Início</a>
+                    <a href="#abt" class="nav-link text-black hover:text-autalytix-teal">Quem Somos</a>
+                    <a href="#slns" class="nav-link text-black hover:text-autalytix-teal">Soluções</a>
+                    <a href="#ctt"
+                        class="px-4 py-2 bg-autalytix-teal text-white rounded-md hover:bg-teal-700 transition">Contato</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-autalytix-navy focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#home"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-autalytix-teal hover:bg-gray-100">Início</a>
+                    <a href="#abt"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-autalytix-teal hover:bg-gray-100">Quem
+                        Somos</a>
+                    <a href="#slns"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-autalytix-teal hover:bg-gray-100">Soluções</a>
+                    <a href="#ctt"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-white bg-autalytix-teal hover:bg-teal-700">Contato</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-32 pb-20 md:pt-40 md:pb-32 text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    Tecnologia e inteligência para transformar ativos em estratégia
+                </h1>
+                <p class="text-xl text-gray-300 mb-8">
+                    Soluções para governos, empresas e organizações do terceiro setor
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#slns"
+                        class="px-8 py-4 bg-autalytix-teal text-white rounded-lg text-lg font-semibold hover:bg-teal-700 transition duration-300 text-center">
+                        Conheça Nossas Soluções
+                    </a>
+                    <a href="#ctt"
+                        class="px-8 py-4 border border-autalytix-teal text-autalytix-teal rounded-lg text-lg font-semibold hover:bg-teal-900 hover:text-white transition duration-300 text-center">
+                        Agende uma Demonstração
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Overview -->
+    <section id="slns" class="py-16" style="background-color: #F9FAFB;">
+        <div class="container mx-auto px-6">
+
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Nossas Soluções</h2>
+                <p class="text-xl text-autalytix-gray max-w-4xl mx-auto">
+                    Transformamos dados orçamentários, patrimoniais e operacionais em inteligência estratégica para
+                    diferentes setores.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- GovTech -->
+                <div class="solution-card bg-white rounded-xl p-8 border border-gray-200 transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-autalytix-teal w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-landmark text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-black">GovTech | GovWise</h3>
+                    </div>
+                    <p class="text-autalytix-gray mb-6">
+                        Eficiência, transparência e performance para a gestão pública.
+                    </p>
+                    <a href="./govtech/govtech.html"
+                        class="text-autalytix-teal font-semibold hover:text-teal-700 flex items-center">
+                        Ver Solução <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- BizTech -->
+                <div class="solution-card bg-white rounded-xl p-8 border border-gray-200 transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-autalytix-teal w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-black">BizTech | BizFlow & BizPilot</h3>
+                    </div>
+                    <p class="text-autalytix-gray mb-6">
+                        Automação, visão estratégica e controle financeiro para empresas.
+                    </p>
+                    <a href="./biztech/biztech.html"
+                        class="text-autalytix-teal font-semibold hover:text-teal-700 flex items-center">
+                        Ver Soluções <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- ImpactTech -->
+                <div class="solution-card bg-white rounded-xl p-8 border border-gray-200 transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-autalytix-teal w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hands-helping text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-black">ImpactTech | ImpactLedger</h3>
+                    </div>
+                    <p class="text-autalytix-gray mb-6">
+                        Gestão transparente, contabilidade confiável e impacto real.
+                    </p>
+                    <a href="./impacttech/impacttech.html"
+                        class="text-autalytix-teal font-semibold hover:text-teal-700 flex items-center">
+                        Ver Solução <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="abt" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Quem Somos</h2>
+
+                <p class="text-autalytix-gray text-xl max-w-4xl mx-auto mb-6">
+                    A Autalytix é uma empresa de tecnologia que transforma dados contábeis, patrimoniais e operacionais
+                    em
+                    inteligência estratégica. Com soluções específicas para governos, empresas e organizações sociais,
+                    ajudamos instituições a tomarem decisões com mais confiança, transparência e impacto.
+                </p>
+
+                <div class="text-autalytix-teal font-semibold italic mb-8">
+                    Turning Assets Into Strategy
+                </div>
+
+                <div class="text-white text-lg p-6 rounded-lg max-w-3xl mx-auto" style="background-color: #0F172A;">
+                    "Acreditamos que ativos não existem apenas para serem gerenciados — mas sim, ativados com
+                    propósito."
+                </div>
+            </div>
+
+
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-bold mb-4">Nossos Diferenciais</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="bg-autalytix-teal w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-puzzle-piece text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Soluções modulares e escaláveis</h4>
+                    <p class="text-autalytix-gray">
+                        Adaptáveis às necessidades específicas de cada organização, desde pequenas prefeituras até
+                        grandes corporações.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="bg-autalytix-teal w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-balance-scale text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Conformidade com normas contábeis</h4>
+                    <p class="text-autalytix-gray">
+                        NBCASP, MCASP, ITG e outras normas específicas para cada setor de atuação.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="bg-autalytix-teal w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-code text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Tecnologia própria e suporte consultivo</h4>
+                    <p class="text-autalytix-gray">
+                        Desenvolvemos nossas soluções e oferecemos suporte especializado para implementação.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="bg-autalytix-teal w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-plug text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Integração com ERPs</h4>
+                    <p class="text-autalytix-gray">
+                        SAP, Totvs, sistemas públicos e outras plataformas de gestão empresarial.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="bg-autalytix-teal w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Especialistas em gestão</h4>
+                    <p class="text-autalytix-gray">
+                        Pública, privada e terceiro setor com experiência prática em cada um desses segmentos.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="bg-autalytix-teal w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-lock text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Segurança de dados</h4>
+                    <p class="text-autalytix-gray">
+                        Infraestrutura robusta com certificações de segurança e privacidade de dados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fibonacci Institute -->
+    <section id="fi" class="py-20 hero-gradient text-white">
+        <div class="container mx-auto px-6 text-center">
+            <span
+                class="inline-block bg-autalytix-teal/20 text-autalytix-teal font-semibold px-4 py-1 rounded-full mb-4">
+                Instituto Fibonacci
+            </span>
+
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Conhecimento aplicado para quem decide.
+            </h2>
+            <p class="text-gray-300 mb-8">
+                Cursos, publicações e inteligência para transformar dados em decisões.
+            </p>
+
+            <div class="mb-12">
+                <a href="#"
+                    class="inline-flex items-center px-6 py-3 bg-white text-autalytix-teal font-semibold rounded-md hover:bg-gray-100 transition">
+                    Conheça o Instituto <span class="ml-2">→</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white/10 p-6 rounded-md">
+                    <h3 class="text-lg font-bold mb-2">Trilha para Servidores</h3>
+                    <p class="text-gray-300">
+                        Capacitação especializada para gestores públicos e servidores.
+                    </p>
+                </div>
+
+                <div class="bg-white/10 p-6 rounded-md">
+                    <h3 class="text-lg font-bold mb-2">Cursos e Webinars</h3>
+                    <p class="text-gray-300">
+                        Formação para contadores, gestores e líderes do terceiro setor.
+                    </p>
+                </div>
+
+                <div class="bg-white/10 p-6 rounded-md">
+                    <h3 class="text-lg font-bold mb-2">Publicações Exclusivas</h3>
+                    <p class="text-gray-300">
+                        Conteúdo técnico e estratégico para profissionais de alto nível.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="ctt" class="py-20 bg-white text-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">Entre em Contato</h2>
+            <p class="text-center text-gray-500 mb-12">
+                Estamos prontos para ajudar sua organização a transformar dados em estratégia.
+            </p>
+
+            <div class="flex flex-col md:flex-row md:space-x-12">
+                <!-- Formulário -->
+                <div class="md:w-2/3">
+                    <h3 class="text-xl font-semibold mb-6">Agende uma Demonstração</h3>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Nome*" required
+                                class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal">
+                            <input type="email" placeholder="Email*" required
+                                class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal">
+                            <input type="text" placeholder="Cargo*" required
+                                class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal">
+                            <input type="text" placeholder="Organização*" required
+                                class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal">
+                        </div>
+                        <input type="tel" placeholder="Telefone (opcional)"
+                            class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal">
+                        <textarea rows="4" placeholder="Mensagem*" required
+                            class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal"></textarea>
+                        <button type="submit"
+                            class="w-full py-3 bg-autalytix-teal text-white rounded-md font-semibold hover:opacity-90 transition">
+                            Enviar
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Informações de Contato -->
+                <div class="md:w-1/3 mt-10 md:mt-0">
+                    <h3 class="text-xl font-semibold mb-6">Informações de Contato</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="bg-autalytix-teal p-2 rounded-full">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p>contato@autalytix.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <div class="bg-autalytix-teal p-2 rounded-full">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Telefones</h4>
+                                <p>+55 (11) 97726-1111</p>
+                                <p>+55 (11) 98232-8157</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SOBRE / MISSÃO / VISÃO -->
-<section id="about" class="py-20 relative">
-  <div class="container mx-auto px-6">
-    <div class="max-w-4xl mx-auto text-center mb-16 fade-in">
-      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Sobre a Autalytix</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-transparent mx-auto mb-8"></div>
-      <p class="text-lg text-gray-400 leading-relaxed">
-        A Autalytix é uma empresa de tecnologia e análise estratégica que ajuda organizações a enxergar seus ativos com uma nova lente. Alinhamos avaliação patrimonial, inteligência contábil e visão de mercado para criar estratégias sólidas, preparadas para escalar.
-      </p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
-      <div class="fade-in">
-        <div class="glass-card p-8 rounded-2xl">
-          <h3 class="text-2xl font-bold mb-4">Nossa Missão</h3>
-          <p class="text-gray-400 mb-6">
-            Capacitar empresas a transformar dados patrimoniais em decisões estratégicas através de tecnologia avançada e análise especializada.
-          </p>
-          <div class="flex items-center space-x-4">
-            <div class="w-12 h-12 rounded-full bg-blue-900/30 flex items-center justify-center">
-              <i class="fas fa-bullseye text-blue-400 text-xl"></i>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5511977261111"
+        class="floating-whatsapp bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 pt-16 pb-8 text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between mb-12">
+                <div class="mb-8 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-white mb-4 inline-block">
+                        <span class="text-white">Autalytix</span>
+                    </a>
+                    <p class="text-gray-400 max-w-xs">
+                        Transformando ativos em estratégia para governos, empresas e organizações do terceiro setor.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="#abt" class="text-gray-400 hover:text-white">Quem Somos</a></li>
+                            <li><a href="#slns" class="text-gray-400 hover:text-white">Soluções</a></li>
+                            <li><a href="#fi" class="text-gray-400 hover:text-white">Fibonacci Institute</a></li>
+                            <li><a href="#ctt" class="text-gray-400 hover:text-white">Contato</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Soluções</h4>
+                        <ul class="space-y-2">
+                            <li><a href="./govtech/govtech.html" class="text-gray-400 hover:text-white">GovTech</a></li>
+                            <li><a href="./biztech/biztech.html" class="text-gray-400 hover:text-white">BizTech</a></li>
+                            <li><a href="./impacttech/impacttech.html"
+                                    class="text-gray-400 hover:text-white">ImpactTech</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Fibonacci Institute</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white">Termos de Uso</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Política de Privacidade</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Política de Cookies</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div>
-              <h4 class="font-medium">Precisão</h4>
-              <p class="text-sm text-gray-500">Dados confiáveis e análises precisas</p>
+
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2025 Autalytix Tecnologia Ltda. Todos os direitos reservados.
+                </p>
+
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/autalytix/" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="fade-in">
-        <div class="glass-card p-8 rounded-2xl">
-          <h3 class="text-2xl font-bold mb-4">Nossa Visão</h3>
-          <p class="text-gray-400 mb-6">
-            Ser referência nacional em inteligência patrimonial, integrando tecnologia e conhecimento para criar valor sustentável.
-          </p>
-          <div class="flex items-center space-x-4">
-            <div class="w-12 h-12 rounded-full bg-indigo-900/30 flex items-center justify-center">
-              <i class="fas fa-eye text-indigo-400 text-xl"></i>
-            </div>
-            <div>
-              <h4 class="font-medium">Clareza</h4>
-              <p class="text-sm text-gray-500">Visão estratégica e transparente</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </footer>
 
-<!-- NOSSAS SOLUÇÕES -->
-<section id="solutions" class="py-20 bg-gradient-to-b from-slate-900/50 to-slate-900/20">
-  <div class="container mx-auto px-6">
-    <div class="max-w-4xl mx-auto text-center mb-16 fade-in">
-      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Nossas Soluções</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-transparent mx-auto mb-8"></div>
-      <p class="text-lg text-gray-400 leading-relaxed">
-        Oferecemos um portfólio completo de serviços para transformar seus ativos em vantagem competitiva.
-      </p>
-    </div>
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="glass-card p-6 rounded-xl card-hover fade-in">
-        <div class="w-14 h-14 rounded-lg bg-blue-900/30 flex items-center justify-center mb-6 text-blue-400 text-2xl">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <h3 class="text-xl font-bold mb-3">Avaliação Estratégica de Ativos</h3>
-        <p class="text-gray-400">
-          Análise técnica e estratégica de ativos tangíveis e intangíveis para tomada de decisão informada.
-        </p>
-      </div>
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
 
-      <div class="glass-card p-6 rounded-xl card-hover fade-in">
-        <div class="w-14 h-14 rounded-lg bg-indigo-900/30 flex items-center justify-center mb-6 text-indigo-400 text-2xl">
-          <i class="fas fa-puzzle-piece"></i>
-        </div>
-        <h3 class="text-xl font-bold mb-3">Inteligência Patrimonial Contábil</h3>
-        <p class="text-gray-400">
-          Integração entre dados contábeis e realidade de mercado para uma visão holística do patrimônio.
-        </p>
-      </div>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-      <div class="glass-card p-6 rounded-xl card-hover fade-in">
-        <div class="w-14 h-14 rounded-lg bg-purple-900/30 flex items-center justify-center mb-6 text-purple-400 text-2xl">
-          <i class="fas fa-rocket"></i>
-        </div>
-        <h3 class="text-xl font-bold mb-3">Preparação para Captação e Valuation</h3>
-        <p class="text-gray-400">
-          Estruturação de ativos e documentação para processos de captação, valuation e due diligence.
-        </p>
-      </div>
+                // Close mobile menu if open
+                mobileMenu.classList.remove('open');
 
-      <div class="glass-card p-6 rounded-xl card-hover fade-in">
-        <div class="w-14 h-14 rounded-lg bg-teal-900/30 flex items-center justify-center mb-6 text-teal-400 text-2xl">
-          <i class="fas fa-building"></i>
-        </div>
-        <h3 class="text-xl font-bold mb-3">Apoio em Fusões, Aquisições e Governança</h3>
-        <p class="text-gray-400">
-          Consultoria estratégica para fusões, aquisições e organização patrimonial, garantindo segurança jurídica e valorização de ativos.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-<!-- DIFERENCIAIS -->
-<section class="py-20 relative">
-  <div class="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-slate-900/50 to-black z-0"></div>
-  <div class="container mx-auto px-6 relative z-10">
-    <div class="glass-card rounded-2xl p-12">
-      <div class="max-w-4xl mx-auto text-center mb-12 fade-in">
-        <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Por que escolher a Autalytix?</h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-transparent mx-auto mb-8"></div>
-      </div>
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="fade-in">
-          <div class="flex items-start mb-6">
-            <div class="flex-shrink-0 mr-4">
-              <div class="w-10 h-10 rounded-full bg-blue-900/30 flex items-center justify-center text-blue-400">
-                <i class="fas fa-check"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold mb-1">Abordagem baseada em dados</h3>
-              <p class="text-gray-400">
-                Utilizamos normas técnicas e metodologias validadas para garantir precisão e confiabilidade.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start mb-6">
-            <div class="flex-shrink-0 mr-4">
-              <div class="w-10 h-10 rounded-full bg-indigo-900/30 flex items-center justify-center text-indigo-400">
-                <i class="fas fa-check"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold mb-1">Integração contábil e de mercado</h3>
-              <p class="text-gray-400">
-                Conectamos a realidade contábil com as dinâmicas de mercado para uma visão completa.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="fade-in">
-          <div class="flex items-start mb-6">
-            <div class="flex-shrink-0 mr-4">
-              <div class="w-10 h-10 rounded-full bg-purple-900/30 flex items-center justify-center text-purple-400">
-                <i class="fas fa-check"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold mb-1">Equipe especializada</h3>
-              <p class="text-gray-400">
-                Profissionais com know-how técnico e visão executiva para orientação estratégica.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start">
-            <div class="flex-shrink-0 mr-4">
-              <div class="w-10 h-10 rounded-full bg-teal-900/30 flex items-center justify-center text-teal-400">
-                <i class="fas fa-check"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold mb-1">Resultados tangíveis</h3>
-              <p class="text-gray-400">
-                Foco em entregas que geram impacto real na gestão e valorização do patrimônio.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA FINAL -->
-<section class="py-20 bg-gradient-to-r from-blue-900/20 to-indigo-900/20">
-  <div class="container mx-auto px-6">
-    <div class="max-w-4xl mx-auto text-center fade-in">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">Vamos transformar seus ativos em decisões estratégicas?</h2>
-      <p class="text-lg text-gray-400 mb-8">
-        Nossa equipe está pronta para ajudar sua organização a extrair o máximo valor do seu patrimônio.
-      </p>
-      <a href="#contact" class="btn-primary text-white font-medium py-3 px-8 rounded-full inline-block">
-        Fale com a gente
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTATO -->
-<section id="contact" class="py-20">
-  <div class="container mx-auto px-6">
-    <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-16 fade-in">
-            <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Entre em Contato</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-transparent mx-auto mb-8"></div>
-            <p class="text-lg text-gray-400 leading-relaxed">
-                Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível.
-            </p>
-        </div>
-
-      <div class="glass-card rounded-2xl p-8 md:p-12 fade-in">
-        <form id="contactForm" class="space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label for="name" class="block text-sm font-medium mb-1">Nome</label>
-              <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium mb-1">E-mail</label>
-              <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-          </div>
-          <div>
-            <label for="company" class="block text-sm font-medium mb-1">Empresa</label>
-            <input type="text" id="company" name="company" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-          <div>
-            <label for="message" class="block text-sm font-medium mb-1">Mensagem</label>
-            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-          </div>
-          <div class="pt-2">
-            <button type="submit" class="btn-primary text-white font-medium py-3 px-8 rounded-full inline-block w-full md:w-auto">
-              Enviar Mensagem
-            </button>
-          </div>
-        </form>
-
-        <div id="successMessage" class="hidden mt-6 p-4 bg-green-900/30 rounded-lg border border-green-800 text-green-400">
-          <div class="flex items-center">
-            <i class="fas fa-check-circle mr-3 text-xl"></i>
-            <p>Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RODAPÉ -->
-<footer class="bg-slate-900/50 py-12">
-  <div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between items-center">
-      <div class="flex items-center mb-6 md:mb-0">
-        <img src="./assets/mini_logo.jpg" alt="Autalytix Logo" class="h-8 w-auto mr-2">
-        <span class="text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">AUTALYTIX</span>
-      </div>
-      <div class="flex space-x-6 mb-6 md:mb-0">
-        <a href="https://www.instagram.com/autalytix/" target="_blank" class="text-gray-400 hover:text-white transition">
-          <i class="fab fa-instagram text-xl"></i>
-        </a>
-        <a href="#" class="text-gray-400 hover:text-white transition">
-          <i class="fab fa-linkedin text-xl"></i>
-        </a>
-      </div>
-      <div class="text-center md:text-right">
-        <p class="text-sm text-gray-500 mb-1">© 2025 Autalytix. Todos os direitos reservados.</p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const fadeInObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    fadeElements.forEach(element => fadeInObserver.observe(element));
-
-    const contactForm = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
-
-    if (contactForm) {
-      contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        setTimeout(() => {
-          contactForm.reset();
-          successMessage.classList.remove('hidden');
-          setTimeout(() => {
-            successMessage.classList.add('hidden');
-          }, 5000);
-        }, 1000);
-      });
-    }
-  });
-</script>
 </body>
+
 </html>

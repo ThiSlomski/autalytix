@@ -1,0 +1,3 @@
+FTP_HOST=ftp.autalytix.com.br
+FTP_USER=autalytix
+FTP_PASSWORD=Thiago@Wellington25
