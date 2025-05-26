@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autalytix ImpactLedger - Gestão de Impacto para o Terceiro Setor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .impact-gradient {
+            background: linear-gradient(135deg, #2b6cb0 0%, #38a169 100%);
+        }
+
+        .feature-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-left-color: #38a169;
+        }
+
+        .impact-preview {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .benefit-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .benefit-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background-color: #2b6cb0;
+            border-radius: 50%;
+        }
+
+        .number-badge {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: #38a169;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div
+                            class="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center text-white font-bold">
+                            AI</div>
+                        <a href="../index.html" class="ml-2 text-xl font-bold text-gray-800">Autalytix <span
+                                class="text-blue-700">ImpactLedger</span></a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#hero" class="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Início</a>
+                    <a href="#solution"
+                        class="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Solução</a>
+                    <a href="#problems"
+                        class="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Desafios</a>
+                    <a href="#features"
+                        class="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Funcionalidades</a>
+                    <a href="#contact"
+                        class="bg-green-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition duration-300">Fale
+                        com Especialistas</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-700 hover:text-green-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="impact-gradient text-white pt-32 pb-20 md:pt-40 md:pb-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <span
+                        class="inline-block px-3 py-1 bg-white text-green-600 rounded-full text-xs font-semibold mb-4">IMPACTTECH</span>
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Autalytix <span
+                            class="text-blue-200">ImpactLedger</span></h1>
+                    <p class="text-xl md:text-2xl text-gray-100 mb-8">Transparência, Eficiência e Gestão de Impacto para
+                        o Terceiro Setor</p>
+                    <p class="text-gray-200 mb-8 max-w-lg">Solução completa para gestão de ONGs, OSCIPs, institutos e
+                        fundações, com foco em transparência, prestação de contas e mensuração de impacto social.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact"
+                            class="bg-white text-green-700 px-6 py-3 rounded-md text-sm font-semibold hover:bg-gray-100 transition duration-300 text-center">Saiba
+                            como transformar sua gestão</a>
+                        <a href="#features"
+                            class="border border-white text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition duration-300 text-center">Ver
+                            Funcionalidades</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="impact-preview relative z-10">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3976/3976626.png" alt="Impact Dashboard"
+                            class="w-full max-w-md mx-auto">
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                        <div
+                            class="w-full h-full bg-gradient-to-r from-blue-900 to-green-700 rounded-full filter blur-3xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Description -->
+    <section id="solution" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Solução Especializada para o Terceiro Setor</h2>
+                <div class="w-20 h-1 bg-green-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Criada para organizações que transformam vidas e
+                    precisam de ferramentas para ampliar seu impacto.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-hands-helping text-green-600 mr-3"></i>
+                        Para quem é
+                    </h3>
+                    <p class="text-gray-600 mb-4">O Autalytix ImpactLedger foi desenvolvido especialmente para:</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-2"></i>
+                            <span class="text-gray-700">ONGs e OSCIPs de todos os portes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Institutos e fundações empresariais</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Organizações religiosas com projetos sociais</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Entidades que recebem recursos públicos</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-lightbulb text-green-600 mr-3"></i>
+                        Nosso propósito
+                    </h3>
+                    <p class="text-gray-600 mb-4">Acreditamos que tecnologia deve servir ao bem comum:</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Democratizar acesso a ferramentas profissionais</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Ampliar transparência e credibilidade</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Liberar tempo para o que realmente importa: o impacto
+                                social</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-green-50 p-8 rounded-lg">
+                <div class="md:flex items-center">
+                    <div class="md:w-2/3 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">"Transformamos desafios em oportunidades"</h3>
+                        <p class="text-gray-700 mb-6">O ImpactLedger nasceu da necessidade de organizações do terceiro
+                            setor em profissionalizar sua gestão sem perder o foco em sua missão social. Combinamos
+                            tecnologia com conhecimento especializado para criar uma solução acessível e poderosa.</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+                                <i class="fas fa-lock text-green-600 text-2xl mb-2"></i>
+                                <p class="text-sm font-medium">Segurança</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+                                <i class="fas fa-chart-line text-green-600 text-2xl mb-2"></i>
+                                <p class="text-sm font-medium">Eficiência</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+                                <i class="fas fa-eye text-green-600 text-2xl mb-2"></i>
+                                <p class="text-sm font-medium">Transparência</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+                                <i class="fas fa-heart text-green-600 text-2xl mb-2"></i>
+                                <p class="text-sm font-medium">Impacto</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3 flex justify-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4052/4052984.png" alt="Impacto Social"
+                            class="w-40">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section id="problems" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Desafios que Ajudamos a Resolver</h2>
+                <div class="w-20 h-1 bg-green-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Os principais obstáculos enfrentados por organizações
+                    do terceiro setor</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-file-invoice-dollar text-blue-800 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Prestação de contas complexa</h3>
+                    <p class="text-gray-600">Dificuldade em atender exigências de mantenedores, órgãos de controle e
+                        financiadores com formatos e prazos diversos.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-user-tie text-green-800 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Gestão pouco profissionalizada</h3>
+                    <p class="text-gray-600">Falta de estrutura e ferramentas adequadas para gestão contábil,
+                        patrimonial e de projetos, muitas vezes dependendo de planilhas.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-pie text-yellow-800 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Dificuldade em demonstrar impacto</h3>
+                    <p class="text-gray-600">Desafio em mensurar e comunicar resultados sociais de forma clara para
+                        atrair novos recursos e parcerias.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-sm">
+                <div class="md:flex items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4052/4052987.png" alt="Solução ImpactLedger"
+                            class="w-full max-w-md mx-auto">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Como o ImpactLedger transforma esses desafios
+                        </h3>
+                        <p class="text-gray-700 mb-6">Nossa plataforma foi construída especificamente para as
+                            necessidades do terceiro setor, combinando:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Tecnologia acessível e intuitiva</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Modelos prontos para prestação de contas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Ferramentas de mensuração de impacto</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Suporte especializado contínuo</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Funcionalidades-Chave</h2>
+                <div class="w-20 h-1 bg-green-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Tudo que sua organização precisa em uma única
+                    plataforma</p>
+            </div>
+
+            <div class="space-y-8 mb-12">
+                <div class="feature-card bg-gray-50 p-6 rounded-lg flex items-start">
+                    <div class="number-badge">01</div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Gestão centralizada de recursos</h3>
+                        <p class="text-gray-600">Controle integrado de doações, ativos e projetos em um único ambiente,
+                            com rastreabilidade completa e histórico de movimentações.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-gray-50 p-6 rounded-lg flex items-start">
+                    <div class="number-badge">02</div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Relatórios prontos</h3>
+                        <p class="text-gray-600">Modelos automatizados para auditorias, convênios, editais e prestações
+                            públicas, com exportação em múltiplos formatos.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-gray-50 p-6 rounded-lg flex items-start">
+                    <div class="number-badge">03</div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Indicadores de impacto social</h3>
+                        <p class="text-gray-600">Módulo especializado para definição, acompanhamento e comunicação de
+                            métricas de impacto alinhadas aos ODS e outras frameworks.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-gray-50 p-6 rounded-lg flex items-start">
+                    <div class="number-badge">04</div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Conformidade regulatória</h3>
+                        <p class="text-gray-600">Acompanhamento de marcos legais, princípios ESG e boas práticas de
+                            governança para organizações do terceiro setor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 p-8 rounded-lg">
+                <div class="md:flex items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Relatórios de Impacto Visual</h3>
+                        <p class="text-gray-700 mb-6">Comunique seu trabalho de forma clara e impactante com dashboards
+                            interativos e relatórios visuais prontos para compartilhar com doadores, parceiros e
+                            comunidades.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-blue-800 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Gráficos e infográficos personalizáveis</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-blue-800 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Comparativos históricos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-blue-800 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Benchmarking com organizações similares</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4052/4052983.png" alt="Relatórios de Impacto"
+                            class="w-64">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Benefits -->
+    <section id="benefits" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Benefícios Estratégicos</h2>
+                <div class="w-20 h-1 bg-green-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Resultados tangíveis para sua organização social</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-briefcase text-green-800 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Profissionalização da Gestão</h3>
+                    </div>
+                    <p class="text-gray-600">Estruturação de processos contábeis, financeiros e de governança com
+                        ferramentas adequadas ao terceiro setor, sem necessidade de grande investimento em TI.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-eye text-blue-800 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Transparência e Credibilidade</h3>
+                    </div>
+                    <p class="text-gray-600">Fortalecimento da confiança junto a doadores, financiadores e comunidades
+                        atendidas através de relatórios claros e acesso facilitado às informações.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-file-alt text-yellow-800 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Facilidade na Prestação de Contas</h3>
+                    </div>
+                    <p class="text-gray-600">Redução de tempo e esforço na elaboração de relatórios para diferentes
+                        stakeholders, com modelos prontos e adaptáveis a diversos formatos exigidos.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hand-holding-heart text-purple-800 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Atração de Novos Recursos</h3>
+                    </div>
+                    <p class="text-gray-600">Demonstração clara de impacto e boa governança como diferencial competitivo
+                        para captação de recursos junto a empresas, editais e financiadores internacionais.</p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-800 to-green-700 text-white p-8 rounded-lg">
+                <div class="md:flex items-center justify-between">
+                    <div class="md:w-2/3 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-4">Transforme a gestão da sua organização e amplie seu impacto
+                            social</h3>
+                        <p class="text-blue-100">Com o Autalytix ImpactLedger, você dedica mais tempo à sua missão
+                            social e menos tempo à burocracia.</p>
+                    </div>
+                    <div class="md:w-1/3 flex justify-end">
+                        <a href="#contact"
+                            class="bg-white text-green-700 px-6 py-3 rounded-md text-sm font-semibold hover:bg-gray-100 transition duration-300 inline-block">Fale
+                            com nossos especialistas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-blue-900 text-white p-12">
+                        <h2 class="text-3xl font-bold mb-6">Solicite uma Demonstração</h2>
+                        <p class="text-blue-100 mb-8">
+                            Preencha o formulário ao lado e nossa equipe entrará em contato para agendar uma
+                            apresentação personalizada da solução.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Fale Conosco</p>
+                                    <p class="text-blue-200 text-sm">(11) 97726-1111</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">E-mail</p>
+                                    <p class="text-blue-200 text-sm">contato@autalytix.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Horário Comercial</p>
+                                    <p class="text-blue-200 text-sm">Seg-Sex: 9h às 18h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:w-1/2 p-12">
+                        <form class="generic-form">
+                            <input type="hidden" name="origin" value="ImpactLedger">
+                            <input type="hidden" name="time">
+
+                            <div class="mb-6">
+                                <input type="text" name="name" placeholder="Nome Completo" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900">
+                            </div>
+
+                            <div class="mb-6">
+                                <input type="email" name="email" placeholder="E-mail" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900">
+                            </div>
+
+                            <div class="mb-6">
+                                <input type="text" name="organization" placeholder="Organização/Instituição" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900">
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-blue-900 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-800 transition duration-300">
+                                Enviar Solicitação
+                            </button>
+
+                            <p class="form-status text-center text-sm mt-4"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center text-white font-bold">
+                            AI</div>
+                        <span class="ml-2 text-xl font-bold">Autalytix <span
+                                class="text-green-400">ImpactLedger</span></span>
+                    </div>
+                    <p class="text-gray-400">Tecnologia para transformação social</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Soluções</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">ImpactLedger</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Módulo de
+                                Impacto</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Prestação de
+                                Contas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Consultoria</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Recursos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Materiais
+                                Educativos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Webinars</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Impacto Social</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Nossas
+                                Parcerias</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cases de
+                                Sucesso</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">ODS que
+                                apoiamos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Trabalhe
+                                Conosco</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Autalytix ImpactLedger. Todos os direitos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <a href="#contact"
+        class="fixed bottom-6 right-6 bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-700 transition duration-300 z-20">
+        <i class="fas fa-comment-alt text-xl"></i>
+    </a>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle would go here
+        // This is a placeholder for actual implementation
+    </script>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js">
+
+    </script>
+    <script>
+        (function () {
+            emailjs.init('4Wej6lTFHMrw605o0'); // Sua Public Key
+        })();
+
+        document.querySelectorAll('.generic-form').forEach(form => {
+            const status = form.querySelector('.form-status');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                form.querySelector('input[name="time"]').value = new Date().toLocaleString();
+
+                status.textContent = 'Enviando...';
+                status.classList.remove('text-green-500', 'text-red-500');
+                submitBtn.disabled = true;
+
+                emailjs.sendForm('service_vp49hgr', 'template_6lqlaoa', form)
+                    .then(() => {
+                        status.textContent = 'Solicitação enviada com sucesso!';
+                        status.classList.add('text-green-500');
+                        form.reset();
+                        submitBtn.disabled = false;
+                    }, (err) => {
+                        status.textContent = 'Erro ao enviar. Tente novamente.';
+                        status.classList.add('text-red-500');
+                        console.error('Erro:', err);
+                        submitBtn.disabled = false;
+                    });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

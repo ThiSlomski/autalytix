@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,84 +9,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Open+Sans:wght@300;400;500&display=swap');
-        
+
         :root {
             --navy: #1e3a5f;
             --gold: #c4a000;
             --gray: #6b7280;
             --white: #f9fafb;
         }
-        
+
         body {
             font-family: 'Open Sans', sans-serif;
             color: var(--navy);
             background-color: var(--white);
             scroll-behavior: smooth;
         }
-        
-        h1, h2, h3, h4 {
+
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Crimson Pro', serif;
             font-weight: 600;
         }
-        
+
         .navy-bg {
             background-color: var(--navy);
         }
-        
+
         .gold-text {
             color: var(--gold);
         }
-        
+
         .navy-text {
             color: var(--navy);
         }
-        
+
         .gold-border {
             border-color: var(--gold);
         }
-        
+
         .section {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s, transform 0.6s;
         }
-        
+
         .section.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .icon-box {
             transition: transform 0.3s;
         }
-        
+
         .icon-box:hover {
             transform: translateY(-5px);
         }
-        
+
         .btn-gold {
             background-color: var(--gold);
             color: var(--navy);
             transition: all 0.3s;
         }
-        
+
         .btn-gold:hover {
             background-color: #d4b000;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .btn-outline {
             border: 2px solid var(--gold);
             color: var(--gold);
             transition: all 0.3s;
         }
-        
+
         .btn-outline:hover {
             background-color: var(--gold);
             color: var(--navy);
         }
-        
+
         .logo-placeholder {
             width: 50px;
             height: 50px;
@@ -99,7 +103,9 @@
         }
     </style>
 </head>
+
 <body class="antialiased">
+
     <!-- Header -->
     <header class="navy-bg fixed w-full z-50 shadow-md">
         <div class="container mx-auto px-4 py-3">
@@ -108,7 +114,7 @@
                     <div class="logo-placeholder rounded">FI</div>
                     <h1 class="text-white font-bold text-xl hidden md:block">Instituto Fibonacci</h1>
                 </div>
-                
+
                 <nav class="hidden md:block">
                     <ul class="flex space-x-8">
                         <li><a href="#sobre" class="text-white hover:text-gray-300 transition">Sobre</a></li>
@@ -118,13 +124,13 @@
                         <li><a href="#contato" class="text-white hover:text-gray-300 transition">Contato</a></li>
                     </ul>
                 </nav>
-                
+
                 <!-- Mobile menu button -->
                 <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
-            
+
             <!-- Mobile menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
                 <ul class="space-y-3">
@@ -142,7 +148,8 @@
     <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-[#1e3a5f] to-[#2a4a75]">
         <div class="container mx-auto text-center">
             <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Instituto Fibonacci</h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">Onde o Conhecimento Orienta a Estratégia</p>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">Onde o Conhecimento Orienta a Estratégia
+            </p>
             <button id="saiba-mais-btn" class="btn-gold px-8 py-3 rounded-full font-semibold text-lg">
                 Saiba Mais
             </button>
@@ -151,6 +158,7 @@
 
     <!-- Main Content -->
     <main class="py-16 px-4">
+
         <!-- Sobre Section -->
         <section id="sobre" class="section container mx-auto max-w-5xl mb-20">
             <div class="text-center mb-12">
@@ -159,16 +167,19 @@
             </div>
             <div class="md:flex items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pr-10">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
-                         alt="Equipe do Instituto Fibonacci" 
-                         class="rounded-lg shadow-lg w-full h-auto">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+                        alt="Equipe do Instituto Fibonacci" class="rounded-lg shadow-lg w-full h-auto">
                 </div>
                 <div class="md:w-1/2">
                     <p class="text-lg text-gray-700 mb-6">
-                        O <span class="font-semibold gold-text">Instituto Fibonacci</span> é dedicado à promoção da excelência acadêmica e ao desenvolvimento de soluções estratégicas para organizações públicas e privadas.
+                        O <span class="font-semibold gold-text">Instituto Fibonacci</span> é dedicado à promoção da
+                        excelência acadêmica e ao desenvolvimento de soluções estratégicas para organizações públicas e
+                        privadas.
                     </p>
                     <p class="text-lg text-gray-700">
-                        Fundado em 2010, nosso instituto combina rigor científico com aplicação prática, formando profissionais capazes de transformar desafios complexos em oportunidades de crescimento e inovação.
+                        Fundado em 2010, nosso instituto combina rigor científico com aplicação prática, formando
+                        profissionais capazes de transformar desafios complexos em oportunidades de crescimento e
+                        inovação.
                     </p>
                 </div>
             </div>
@@ -220,16 +231,18 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pr-10">
                     <p class="text-lg text-gray-700 mb-6">
-                        Ser referência nacional em <span class="font-semibold gold-text">educação</span> e <span class="font-semibold gold-text">consultoria</span>, contribuindo para o avanço das melhores práticas institucionais.
+                        Ser referência nacional em <span class="font-semibold gold-text">educação</span> e <span
+                            class="font-semibold gold-text">consultoria</span>, contribuindo para o avanço das melhores
+                        práticas institucionais.
                     </p>
                     <p class="text-lg text-gray-700">
-                        Almejamos um futuro onde o conhecimento acadêmico e a excelência operacional caminhem juntos, criando organizações mais eficientes, éticas e inovadoras.
+                        Almejamos um futuro onde o conhecimento acadêmico e a excelência operacional caminhem juntos,
+                        criando organizações mais eficientes, éticas e inovadoras.
                     </p>
                 </div>
                 <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Visão do Instituto Fibonacci" 
-                         class="rounded-lg shadow-lg w-full h-auto">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Visão do Instituto Fibonacci" class="rounded-lg shadow-lg w-full h-auto">
                 </div>
             </div>
         </section>
@@ -247,7 +260,8 @@
                         <h3 class="text-xl font-semibold navy-text mb-2">Compromisso com a Qualidade</h3>
                     </div>
                     <p class="text-gray-700">
-                        Buscamos a excelência em todas as nossas atividades, desde a formação acadêmica até os serviços de consultoria.
+                        Buscamos a excelência em todas as nossas atividades, desde a formação acadêmica até os serviços
+                        de consultoria.
                     </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
@@ -288,46 +302,60 @@
                             <i class="fas fa-envelope text-xl gold-text mr-4 mt-1"></i>
                             <div>
                                 <h4 class="font-semibold mb-1">E-mail</h4>
-                                <p>contato@institutofibonacci.com.br</p>
+                                <p>contato@autalytix.com</p>
                             </div>
                         </div>
                         <div class="mb-6 flex items-start">
                             <i class="fas fa-phone-alt text-xl gold-text mr-4 mt-1"></i>
                             <div>
                                 <h4 class="font-semibold mb-1">Telefone</h4>
-                                <p>+55 (11) 99148-1688</p>
+                                <p>+55 (11) 97726-1111</p>
                             </div>
                         </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-xl gold-text mr-4 mt-1"></i>
+                        <div class="mb-6 flex items-start">  
+                           <i class="fas fa-clock text-xl gold-text mr-4 mt-1"></i>
                             <div>
-                                <h4 class="font-semibold mb-1">Endereço</h4>
-                                <p>Av. Paulista, 1000 - São Paulo/SP</p>
+                                <h4 class="font-semibold mb-1">Horário Comercial</h4>
+                                <p>Seg-Sex: 9h às 18h</p>
                             </div>
                         </div>
                     </div>
                     <div class="md:w-1/2 p-8">
-                        <form>
+                        <form class="generic-form">
+                            <input type="hidden" name="origin" value="Instituto Fibonacci">
+                            <input type="hidden" name="time">
+
                             <div class="mb-4">
                                 <label for="name" class="block text-gray-700 mb-2">Nome</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c4a000]">
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c4a000]">
                             </div>
+
                             <div class="mb-4">
                                 <label for="email" class="block text-gray-700 mb-2">E-mail</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c4a000]">
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c4a000]">
                             </div>
+
                             <div class="mb-4">
-                                <label for="message" class="block text-gray-700 mb-2">Mensagem</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c4a000]"></textarea>
+                                <label for="organization"
+                                    class="block text-gray-700 mb-2">Organização/Instituição</label>
+                                <input type="text" id="organization" name="organization" required
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c4a000]">
                             </div>
+
                             <button type="submit" class="btn-gold px-6 py-2 rounded-lg font-semibold w-full">
                                 Enviar Mensagem
                             </button>
+
+                            <p class="form-status text-center text-sm mt-4"></p>
                         </form>
+
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
@@ -362,19 +390,19 @@
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
+
         // Scroll to section when "Saiba Mais" is clicked
         document.getElementById('saiba-mais-btn').addEventListener('click', () => {
             document.getElementById('sobre').scrollIntoView({ behavior: 'smooth' });
         });
-        
+
         // Intersection Observer for section animations
         const sections = document.querySelectorAll('.section');
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -382,25 +410,25 @@
                 }
             });
         }, { threshold: 0.1 });
-        
+
         sections.forEach(section => {
             observer.observe(section);
         });
-        
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
+
                 if (targetElement) {
                     // Close mobile menu if open
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
-                    
+
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
@@ -409,5 +437,47 @@
             });
         });
     </script>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    
+    <script>
+        (function () {
+            emailjs.init('4Wej6lTFHMrw605o0');  // Substitua pela sua chave pública
+        })();
+
+        document.querySelectorAll('.generic-form').forEach(form => {
+            const status = form.querySelector('.form-status');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Preenche automaticamente o campo 'time'
+                form.querySelector('input[name="time"]').value = new Date().toLocaleString();
+
+                status.textContent = 'Enviando...';
+                status.classList.remove('text-green-500', 'text-red-500');
+
+                // Desabilita o botão de envio
+                submitBtn.disabled = true;
+
+                emailjs.sendForm('service_vp49hgr', 'template_6lqlaoa', form)
+                    .then(() => {
+                        status.textContent = 'Solicitação enviada com sucesso!';
+                        status.classList.add('text-green-500');
+                        form.reset();
+                        submitBtn.disabled = false;
+                    })
+                    .catch((err) => {
+                        status.textContent = 'Erro ao enviar. Tente novamente.';
+                        status.classList.add('text-red-500');
+                        console.error('Erro:', err);
+                        submitBtn.disabled = false;
+                    });
+            });
+        });
+    </script>
+
 </body>
+
 </html>

@@ -199,7 +199,7 @@
                     <p class="text-autalytix-gray mb-6">
                         Eficiência, transparência e performance para a gestão pública.
                     </p>
-                    <a href="./govtech/govtech.html"
+                    <a href="./govtech/govwise.html"
                         class="text-autalytix-teal font-semibold hover:text-teal-700 flex items-center">
                         Ver Solução <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -216,7 +216,7 @@
                     <p class="text-autalytix-gray mb-6">
                         Automação, visão estratégica e controle financeiro para empresas.
                     </p>
-                    <a href="./biztech/biztech.html"
+                    <a href="./biztech/bizflow&pilot.html"
                         class="text-autalytix-teal font-semibold hover:text-teal-700 flex items-center">
                         Ver Soluções <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -233,7 +233,7 @@
                     <p class="text-autalytix-gray mb-6">
                         Gestão transparente, contabilidade confiável e impacto real.
                     </p>
-                    <a href="./impacttech/impacttech.html"
+                    <a href="./impacttech/impactledger.html"
                         class="text-autalytix-teal font-semibold hover:text-teal-700 flex items-center">
                         Ver Solução <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -394,25 +394,31 @@
                 <!-- Formulário -->
                 <div class="md:w-2/3">
                     <h3 class="text-xl font-semibold mb-6">Agende uma Demonstração</h3>
-                    <form class="space-y-4">
+                    <form id="contact-form" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" placeholder="Nome*" required
+                            <input type="text" name="name" placeholder="Nome*" required
                                 class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal">
-                            <input type="email" placeholder="Email*" required
+                            <input type="email" name="email" placeholder="Email*" required
                                 class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal">
-                            <input type="text" placeholder="Cargo*" required
+                            <input type="text" name="position" placeholder="Cargo*" required
                                 class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal">
-                            <input type="text" placeholder="Organização*" required
+                            <input type="text" name="organization" placeholder="Organização*" required
                                 class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal">
                         </div>
-                        <input type="tel" placeholder="Telefone (opcional)"
+                        <input type="tel" name="phone" placeholder="Telefone (opcional)"
                             class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal">
-                        <textarea rows="4" placeholder="Mensagem*" required
+                        <textarea rows="4" name="message" placeholder="Mensagem*" required
                             class="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-autalytix-teal"></textarea>
+
+                        <!-- Campo opcional de data/hora -->
+                        <input type="hidden" name="time">
+
                         <button type="submit"
                             class="w-full py-3 bg-autalytix-teal text-white rounded-md font-semibold hover:opacity-90 transition">
                             Enviar
                         </button>
+
+                        <p id="form-status" class="text-center text-sm mt-4"></p>
                     </form>
                 </div>
 
@@ -472,7 +478,7 @@
                             <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
                             <li><a href="#abt" class="text-gray-400 hover:text-white">Quem Somos</a></li>
                             <li><a href="#slns" class="text-gray-400 hover:text-white">Soluções</a></li>
-                            <li><a href="#fi" class="text-gray-400 hover:text-white">Fibonacci Institute</a></li>
+                            <li><a href="#fi" class="text-gray-400 hover:text-white">Instituto Fibonacci</a></li>
                             <li><a href="#ctt" class="text-gray-400 hover:text-white">Contato</a></li>
                         </ul>
                     </div>
@@ -480,11 +486,10 @@
                     <div>
                         <h4 class="text-lg font-semibold mb-4">Soluções</h4>
                         <ul class="space-y-2">
-                            <li><a href="./govtech/govtech.html" class="text-gray-400 hover:text-white">GovTech</a></li>
-                            <li><a href="./biztech/biztech.html" class="text-gray-400 hover:text-white">BizTech</a></li>
-                            <li><a href="./impacttech/impacttech.html"
-                                    class="text-gray-400 hover:text-white">ImpactTech</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white">Fibonacci Institute</a></li>
+                            <li><a href="./govtech/govwise.html" class="text-gray-400 hover:text-white">GovTech</a></li>
+                            <li><a href="./biztech/bizflow&pilot.html" class="text-gray-400 hover:text-white">BizTech</a></li>
+                            <li><a href="./impacttech/impactledger.html" class="text-gray-400 hover:text-white">ImpactTech</a></li>
+                            <li><a href="InstitutoFibonacci.html" class="text-gray-400 hover:text-white">Instituto Fibonacci</a></li>
                         </ul>
                     </div>
 
@@ -547,6 +552,39 @@
             } else {
                 nav.classList.remove('shadow-lg');
             }
+        });
+
+    </script>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    
+    <script>
+        (function () {
+            emailjs.init('4Wej6lTFHMrw605o0'); // Substitua por sua Public Key
+        })();
+
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Preencher automaticamente o campo de data/hora
+            this.querySelector('input[name="time"]').value = new Date().toLocaleString();
+
+            status.textContent = 'Enviando...';
+            status.classList.remove('text-green-500', 'text-red-500');
+
+            emailjs.sendForm('service_vp49hgr', 'template_hpp81fm', this)
+                .then(() => {
+                    status.textContent = 'Mensagem enviada com sucesso!';
+                    status.classList.add('text-green-500');
+                    form.reset();
+                }, (err) => {
+                    status.textContent = 'Erro ao enviar. Tente novamente.';
+                    status.classList.add('text-red-500');
+                    console.error('Erro:', err);
+                });
         });
     </script>
 

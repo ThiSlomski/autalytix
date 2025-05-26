@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autalytix GovWise - Modernização e Inteligência para a Gestão Pública</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #065f46 100%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .animated-wave {
+            animation: wave 8s linear infinite;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .data-visualization {
+            background: linear-gradient(90deg, rgba(30, 58, 138, 0.1) 0%, rgba(6, 95, 70, 0.1) 100%);
+            border-left: 4px solid #1e3a8a;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div
+                            class="h-8 w-8 rounded-full bg-blue-900 flex items-center justify-center text-white font-bold">
+                            AG</div>
+                        <a href="../index.html" class="ml-2 text-xl font-bold text-gray-800">Autalytix <span
+                                class="text-green-700">GovWise</span></a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#hero" class="text-gray-700 hover:text-blue-900 px-3 py-2 text-sm font-medium">Início</a>
+                    <a href="#platform"
+                        class="text-gray-700 hover:text-blue-900 px-3 py-2 text-sm font-medium">Plataforma</a>
+                    <a href="#features"
+                        class="text-gray-700 hover:text-blue-900 px-3 py-2 text-sm font-medium">Funcionalidades</a>
+                    <a href="#benefits"
+                        class="text-gray-700 hover:text-blue-900 px-3 py-2 text-sm font-medium">Benefícios</a>
+                    <a href="#contact"
+                        class="bg-blue-900 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-800 transition duration-300">Contato</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-700 hover:text-blue-900 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="gradient-bg text-white pt-32 pb-20 md:pt-40 md:pb-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <span
+                        class="inline-block px-3 py-1 bg-white text-blue-900 rounded-full text-xs font-semibold mb-4">GOVTECH</span>
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Autalytix <span
+                            class="text-green-300">GovWise</span></h1>
+                    <p class="text-xl md:text-2xl text-gray-100 mb-8">Modernização e Inteligência para a Gestão Pública
+                    </p>
+                    <p class="text-gray-200 mb-8 max-w-lg">Uma solução robusta e escalável, desenhada para promover
+                        governança, automação e padronização de processos no setor público.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact"
+                            class="bg-white text-blue-900 px-6 py-3 rounded-md text-sm font-semibold hover:bg-gray-100 transition duration-300 text-center">Solicite
+                            uma Demonstração</a>
+                        <a href="#features"
+                            class="border border-white text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition duration-300 text-center">Conheça
+                            as Funcionalidades</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative z-10">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3149/3149028.png" alt="Dashboard GovTech"
+                            class="w-full max-w-md mx-auto">
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                        <div
+                            class="w-full h-full bg-gradient-to-r from-blue-900 to-green-800 rounded-full filter blur-3xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Description -->
+    <section id="platform" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Uma Plataforma Completa para a Gestão Pública</h2>
+                <div class="w-20 h-1 bg-blue-900 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">GovWise é especializada na gestão patrimonial e
+                    contábil de bens públicos — ativos móveis, imóveis e intangíveis.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-landmark text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Governança Pública</h3>
+                    <p class="text-gray-600">Promove a governança corporativa no setor público com ferramentas de
+                        controle e transparência.</p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-green-700 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Automação Inteligente</h3>
+                    <p class="text-gray-600">Automatiza processos burocráticos, reduzindo tempo e custos operacionais.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-blue-900 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Padronização Eficiente</h3>
+                    <p class="text-gray-600">Uniformiza processos conforme as melhores práticas e normas do setor
+                        público.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Funcionalidades-Chave</h2>
+                <div class="w-20 h-1 bg-green-700 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Tecnologia avançada para uma gestão pública mais
+                    eficiente e transparente</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="feature-card bg-white p-8 rounded-lg shadow-sm transition duration-300">
+                    <div class="flex items-start">
+                        <div
+                            class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-6">
+                            <i class="fas fa-shield-alt text-blue-900 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Compliance & Conformidade Legal</h3>
+                            <p class="text-gray-600">Garanta conformidade com os marcos legais: Lei 4.320/64, NBCASP,
+                                Siafi/Siconfi, MCASP e outras regulamentações pertinentes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-white p-8 rounded-lg shadow-sm transition duration-300">
+                    <div class="flex items-start">
+                        <div
+                            class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mr-6">
+                            <i class="fas fa-eye text-green-700 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Visualização em Tempo Real</h3>
+                            <p class="text-gray-600">Dashboards interativos com indicadores atualizados em tempo real
+                                para tomada de decisão ágil.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-white p-8 rounded-lg shadow-sm transition duration-300">
+                    <div class="flex items-start">
+                        <div
+                            class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-6">
+                            <i class="fas fa-exclamation-triangle text-blue-900 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Redução de Riscos</h3>
+                            <p class="text-gray-600">Sistema de alertas inteligentes para anomalias e irregularidades,
+                                prevenindo desperdícios e desvios.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-white p-8 rounded-lg shadow-sm transition duration-300">
+                    <div class="flex items-start">
+                        <div
+                            class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mr-6">
+                            <i class="fas fa-search-dollar text-green-700 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Apoio à Transparência</h3>
+                            <p class="text-gray-600">Ferramentas para publicação automática de dados abertos, atendendo
+                                à LAI e promovendo accountability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="data-visualization p-8 rounded-lg mb-12">
+                <div class="md:flex items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Monitoramento Patrimonial em Tempo Real</h3>
+                        <p class="text-gray-700 mb-6">Visualização integrada do estado patrimonial e financeiro de
+                            órgãos públicos com alertas proativos para situações críticas.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-700 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Controle centralizado de ativos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-700 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Alertas de anomalias em tempo real</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-700 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Prevenção de desperdícios</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" alt="Data Visualization"
+                            class="w-full max-w-md mx-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Benefits -->
+    <section id="benefits" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Benefícios Técnicos</h2>
+                <div class="w-20 h-1 bg-blue-900 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Soluções técnicas especializadas para os desafios da
+                    gestão pública</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-balance-scale text-blue-900 mr-3"></i>
+                        Conformidade Legal
+                    </h3>
+                    <p class="text-gray-600 mb-4">Apoio completo à conformidade com os principais marcos legais que
+                        regulamentam a gestão pública:</p>
+                    <ul class="grid grid-cols-2 gap-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-700 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Lei 4.320/64</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-700 mt-1 mr-2"></i>
+                            <span class="text-gray-700">NBCASP</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-700 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Siafi/Siconfi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-700 mt-1 mr-2"></i>
+                            <span class="text-gray-700">MCASP</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-calculator text-blue-900 mr-3"></i>
+                        Controle Contábil
+                    </h3>
+                    <p class="text-gray-600 mb-4">Controle eficiente de todas as rotinas contábeis do setor público:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-700 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Escrituração contábil completa e automatizada</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-700 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Controle de saldos e conciliações bancárias</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-700 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Processos de fechamento contábil otimizados</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-700 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Geração de relatórios gerenciais e fiscais</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-900 to-green-800 text-white p-8 rounded-lg">
+                <div class="md:flex items-center">
+                    <div class="md:w-2/3 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-4">Impacto Institucional</h3>
+                        <p class="text-blue-100 mb-6">"Fortaleça a credibilidade institucional e a transparência
+                            administrativa com o Autalytix GovWise, garantindo segurança, eficiência e confiança na
+                            gestão pública."</p>
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-900 mr-4">
+                                <i class="fas fa-award text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Excelência em Governança</p>
+                                <p class="text-blue-100 text-sm">Reconhecido por órgãos públicos como solução inovadora
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3 flex justify-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1570/1570887.png" alt="Impacto Institucional"
+                            class="w-40">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-blue-900 text-white p-12">
+                        <h2 class="text-3xl font-bold mb-6">Solicite uma Demonstração</h2>
+                        <p class="text-blue-100 mb-8">
+                            Preencha o formulário ao lado e nossa equipe entrará em contato para agendar uma
+                            apresentação personalizada da solução.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Fale Conosco</p>
+                                    <p class="text-blue-200 text-sm">(11) 97726-1111</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">E-mail</p>
+                                    <p class="text-blue-200 text-sm">contato@autalytix.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Horário Comercial</p>
+                                    <p class="text-blue-200 text-sm">Seg-Sex: 9h às 18h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="md:w-1/2 p-12">
+                        <form class="generic-form">
+                            <input type="hidden" name="origin" value="GovWise">
+                            <input type="hidden" name="time">
+    
+                            <div class="mb-6">
+                                <input type="text" name="name" placeholder="Nome Completo" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900">
+                            </div>
+    
+                            <div class="mb-6">
+                                <input type="email" name="email" placeholder="E-mail" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900">
+                            </div>
+    
+                            <div class="mb-6">
+                                <input type="text" name="organization" placeholder="Organização/Instituição" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900">
+                            </div>
+    
+                            <button type="submit"
+                                class="w-full bg-blue-900 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-800 transition duration-300">
+                                Enviar Solicitação
+                            </button>
+    
+                            <p class="form-status text-center text-sm mt-4"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="h-8 w-8 rounded-full bg-blue-900 flex items-center justify-center text-white font-bold">
+                            AG</div>
+                        <span class="ml-2 text-xl font-bold">Autalytix <span
+                                class="text-green-500">GovWise</span></span>
+                    </div>
+                    <p class="text-gray-400">Modernização e Inteligência para a Gestão Pública</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Soluções</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Gestão
+                                Patrimonial</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Controle
+                                Contábil</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Compliance
+                                Legal</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Transparência</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Recursos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Documentação</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Casos de Uso</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Webinars</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contato</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-gray-400 mt-1 mr-2"></i>
+                            <span class="text-gray-400">(11) 97726-1111</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-gray-400 mt-1 mr-2"></i>
+                            <span class="text-gray-400">contato@autalytix.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Autalytix GovWise. Todos os direitos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <a href="#contact"
+        class="fixed bottom-6 right-6 bg-blue-900 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-800 transition duration-300 z-20">
+        <i class="fas fa-envelope text-xl"></i>
+    </a>
+
+    <script>
+        // Simple smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle would go here
+        // This is a placeholder for actual implementation
+    </script>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script>
+        (function () {
+            emailjs.init('4Wej6lTFHMrw605o0');
+        })();
+
+        document.querySelectorAll('.generic-form').forEach(function (form) {
+            const status = form.querySelector('.form-status');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                form.querySelector('input[name="time"]').value = new Date().toLocaleString();
+
+                status.textContent = 'Enviando...';
+                status.classList.remove('text-green-500', 'text-red-500');
+                submitBtn.disabled = true;
+
+                emailjs.sendForm('service_vp49hgr', 'template_6lqlaoa', form)
+                    .then(() => {
+                        status.textContent = 'Solicitação enviada com sucesso!';
+                        status.classList.add('text-green-500');
+                        form.reset();
+                        submitBtn.disabled = false;
+                    }, (err) => {
+                        status.textContent = 'Erro ao enviar. Tente novamente.';
+                        status.classList.add('text-red-500');
+                        console.error('Erro:', err);
+                        submitBtn.disabled = false;
+                    });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
